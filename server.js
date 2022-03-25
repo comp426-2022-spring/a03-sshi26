@@ -35,11 +35,13 @@ app.get('/app/flips/:number', (req, res) => {
 });
 
 app.get('/app/flip/call/heads', (res) => {
+    const heads = "heads"; 
     res.send(flipAgainstSide(heads)); 
 });
 
 
 app.get('/app/flip/call/tails', (res) => {
+    const tails = "tails"; 
     res.send(flipAgainstSide(tails)); 
 });
 
