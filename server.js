@@ -34,12 +34,12 @@ app.get('/app/flips/:number', (req, res) => {
     res.send(flips); 
 });
 
-app.get('/app/flips/call/heads', (res) => {
+app.get('/app/flip/call/heads', (res) => {
     res.send(flipAgainstSide(heads)); 
 });
 
 
-app.get('/app/flips/call/tails', (res) => {
+app.get('/app/flip/call/tails', (res) => {
     res.send(flipAgainstSide(tails)); 
 });
 
