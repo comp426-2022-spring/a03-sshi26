@@ -97,5 +97,5 @@ function coinFlips(flips) {
 
   function flipACoin(call) {
     const flip = coinFlip();
-    return { "call":call, "flip":flip, result: flip == call ? 'win':'lose' }; 
+    return { "call":call, "flip":flip, "result": flip == call ? 'win':'lose' }; 
   }
