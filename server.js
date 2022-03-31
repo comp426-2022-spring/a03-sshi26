@@ -11,12 +11,8 @@ const server = app.listen(portNumber, () => {
 });
 
 
-// /app/flip/ endpoint 
-app.get('/app/flip/', (req, res) => {
-    res.send(flipOneCoin()); 
-}) 
 
-app.get('/app/', (res) => {
+app.get('/app/', (req, res) => {
     // Respond with status 200
         res.statusCode = 200;
     // Respond with status message "OK"
@@ -24,6 +20,12 @@ app.get('/app/', (res) => {
         res.writeHead( res.statusCode, { 'Content-Type' : 'text/plain' });
         res.end(res.statusCode+ ' ' +res.statusMessage)
     });
+
+// /app/flip/ endpoint 
+app.get('/app/flip/', (req, res) => {
+  res.send(flipOneCoin()); 
+}) 
+
 
 app.get('/app/flips/:number', (req, res) => {
     const flips = manyflips(req.params.number)
@@ -44,7 +46,7 @@ app.get('/app/flip/call/tails', (req, res) => {
 });
 
 // Default response for any other request
-app.use(function(req, res){
+app.all('*', function(req, res){
   res.status(404).send('404 NOT FOUND')
 });
 
