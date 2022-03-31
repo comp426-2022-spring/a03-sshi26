@@ -86,15 +86,25 @@ function countFlips(array) {
  * example: flipACoin('tails')
  * returns: { call: 'tails', flip: 'heads', result: 'lose' }
  */
-
-function flipACoin(call) {
+ function flipACoin(call) {
   const flip = coinFlip();
   return { call, flip, result: flip == call ? 'win':'lose' }; 
 }
 
+// Helper Functions
+function flipAgainstSide(side) {
+  return flipACoin(side);
+}
 
-/** Export 
- * 
- * Export all of your named functions
-*/
-export {coinFlip, coinFlips, flipACoin, countFlips}; 
+function flipOneCoin() {
+  return {"flip" : coinFlip()}
+}
+
+function manyflips(flips) {
+  const flipArray = coinFlips(flips); 
+  return {"raw":flipArray, "summary":countFlips(flipArray)}
+}
+
+exports.flipAgainstSide = flipAgainstSide; 
+exports.flipOneCoin = flipOneCoin; 
+exports.manyflips = manyflips; 
