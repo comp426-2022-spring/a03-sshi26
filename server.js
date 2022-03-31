@@ -34,17 +34,18 @@ app.get('/app/flips/:number', (req, res) => {
     res.send(flips); 
 });
 
-app.get('/app/flip/call/heads', (res) => {
-    const heads = "heads"; 
-    res.send(flipAgainstSide(heads)); 
+app.get('/app/flip/call/heads', (req, res) => {
+    let heads = "heads"; 
+    const answer = flipAgainstSide(heads);
+    res.send(answer); 
 });
 
 
-app.get('/app/flip/call/tails', (res) => {
-    const tails = "tails"; 
-    res.send(flipAgainstSide(tails)); 
+app.get('/app/flip/call/tails', (req, res) => {
+    let tails = "tails"; 
+    const answer = flipAgainstSide(tails)
+    res.send(answer); 
 });
-
 
 
 // Helper Functions
