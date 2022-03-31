@@ -10,10 +10,6 @@ const server = app.listen(portNumber, () => {
     console.log('App listening on port %PORT%'.replace('%PORT%', portNumber))
 });
 
-// Default response for any other request
-app.use(function(req, res){
-  res.status(404).send('404 NOT FOUND')
-});
 
 // /app/flip/ endpoint 
 app.get('/app/flip/', (req, res) => {
@@ -45,6 +41,11 @@ app.get('/app/flip/call/tails', (req, res) => {
     let tails = "tails"; 
     const answer = flipAgainstSide(tails)
     res.send(answer); 
+});
+
+// Default response for any other request
+app.use(function(req, res){
+  res.status(404).send('404 NOT FOUND')
 });
 
 
